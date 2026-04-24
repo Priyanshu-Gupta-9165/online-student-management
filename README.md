@@ -230,6 +230,28 @@ Enter choice: 2
 
 ---
 
+## 🚨 Common Errors & Solutions (Troubleshooting)
+
+If you face any issues while setting up, check the common errors below:
+
+**1. "Apache shut down unexpectedly" in XAMPP**
+* **Reason:** Port 80 is blocked by another application (like Skype or a background web server).
+* **Fix:** Open XAMPP Control Panel → Click **Config** (next to Apache) → **httpd.conf**. Find `Listen 80` and change it to `Listen 8080`. Start Apache again and open `http://localhost:8080/phpmyadmin`.
+
+**2. "Table 'studentdb.students' doesn't exist"**
+* **Reason:** Hibernate couldn't create the table automatically.
+* **Fix:** Make sure `<property name="hibernate.hbm2ddl.auto">update</property>` is present in your `hibernate.cfg.xml`. If the error persists, create the table manually in phpMyAdmin: `CREATE TABLE students (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), course VARCHAR(255), fees INT);`
+
+**3. "Communications link failure" or "Access denied for user 'root'"**
+* **Reason:** MySQL is not running, or your MySQL has a password.
+* **Fix:** Make sure **MySQL** is started in XAMPP. If your MySQL has a password, update `<property name="hibernate.connection.password">YOUR_PASSWORD</property>` in `hibernate.cfg.xml`.
+
+**4. "exec:java / mvn command not found" or "LifecyclePhaseNotFoundException"**
+* **Reason:** Maven isn't properly installed or the path isn't set, or `exec-maven-plugin` isn't in `pom.xml`.
+* **Fix:** The easiest fix is to just run `Main.java` directly from inside **IntelliJ IDEA** (Option A in the Run Guide).
+
+---
+
 
 ## 📦 Technologies Used
 
