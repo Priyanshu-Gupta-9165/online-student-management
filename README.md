@@ -167,9 +167,18 @@ Follow these complete steps to configure and run the Java + Hibernate + MySQL pr
 > ⚠️ **IMPORTANT:** You do NOT need to create any tables inside `studentdb`. Hibernate is configured (`hibernate.hbm2ddl.auto=update`) to automatically generate the `students` table for you when the program runs.
 
 ### Step 3 — Open the Project
-1. Open **IntelliJ IDEA**.
-2. Go to **File → Open** and select the `OnlineStudentManagement` folder.
-3. Wait a few seconds for IntelliJ to download Maven dependencies automatically. *(Check the bottom-right corner for "Syncing" or "Resolving Dependencies" progress)*.
+You can use either **IntelliJ IDEA** or **VS Code**.
+
+**For IntelliJ IDEA:**
+1. Open IntelliJ and go to **File → Open**.
+2. Select the `OnlineStudentManagement` folder.
+3. Wait for IntelliJ to download Maven dependencies automatically. *(Check the bottom-right corner for progress)*.
+
+**For VS Code:**
+1. Open VS Code.
+2. Go to **File → Open Folder** and select the `OnlineStudentManagement` folder.
+3. Install the **Extension Pack for Java** if you haven't already.
+4. VS Code will automatically detect the Maven project and download dependencies.
 
 ### Step 4 — Verify Hibernate Configuration
 Open the config file: `src/main/resources/hibernate.cfg.xml`.
@@ -187,7 +196,11 @@ You can run the application in two ways:
 1. Open `src/main/java/org/example/Main.java`.
 2. Click the **green Play ▶ button** next to `public class Main` or `public static void main`.
 
-**Option B: Using Terminal / PowerShell**
+**Option B: Using VS Code**
+1. Open `src/main/java/org/example/Main.java`.
+2. Click the **Run** button that appears right above the `public static void main(String[] args)` method. 
+
+**Option C: Using Terminal / PowerShell**
 If you prefer running via the terminal, navigate to the project root directory and execute:
 ```powershell
 # 1. Compile the project securely
