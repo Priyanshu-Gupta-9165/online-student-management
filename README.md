@@ -106,29 +106,20 @@ pom.xml
 README.md
 ```
 
----
-
 # 🧰 Prerequisites (Install Before Running)
 
 ### ✔ 1. Java JDK 17 or above
-Download → https://adoptium.net  
-Verify: `java -version`
+Download → [https://adoptium.net](https://adoptium.net)  
 
-### ✔ 2. Maven
-Download → https://maven.apache.org/download.cgi  
-Verify: `mvn -version`
-
-### ✔ 3. MySQL (via XAMPP recommended)
-Download XAMPP → https://www.apachefriends.org/  
+### ✔ 2. MySQL (via XAMPP recommended)
+Download XAMPP → [https://www.apachefriends.org/](https://www.apachefriends.org/)  
 Start in XAMPP:
-- MySQL ✔
-- Apache (optional)
+- MySQL ✔ (Required for database)
+- Apache ✔ (Required to view database via phpMyAdmin)
 
-Open phpMyAdmin: 
-http://localhost/phpmyadmin/
-
-### ✔ 4. IntelliJ IDEA
-Download → https://www.jetbrains.com/idea/download/
+### ✔ 3. IntelliJ IDEA (Recommended)
+Download → [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
+*(Note: IntelliJ comes with built-in Maven, so you do NOT need to download Maven separately!)*
 
 ---
 
