@@ -4,6 +4,8 @@
 
 
 
+
+
 # 📘 Online Student Management System (Java + Hibernate + MySQL)
 
 A complete **Java-based Student Management System** developed using:
@@ -156,59 +158,53 @@ File: `src/main/resources/hibernate.cfg.xml`
 
 ---
 
-# ▶️ How to Run the Project
+# ▶️ How to Run the Project (Full Guide)
 
-Follow these steps to run the Java + Hibernate + MySQL Student Management System:
+Follow these complete steps to configure and run the Java + Hibernate + MySQL project successfully:
 
+### Step 1 — Start XAMPP (Apache & MySQL)
+1. Open the **XAMPP Control Panel**.
+2. Click **Start** next to **MySQL** (Default port is 3306).
+3. Click **Start** next to **Apache** (Default port is 80 or 8080).
+   *(Note: If Apache fails to start, check if port 80 is blocked by Skype or another server).*
+4. Verify by opening [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/) in your browser.
 
+### Step 2 — Create the Database
+1. Inside **phpMyAdmin**, click on **New** on the left sidebar.
+2. Enter the database name: **`studentdb`**.
+3. Click **Create**.
+> ⚠️ **IMPORTANT:** You do NOT need to create any tables inside `studentdb`. Hibernate is configured (`hibernate.hbm2ddl.auto=update`) to automatically generate the `students` table for you when the program runs.
 
-## Step 1 — Open the Project in IntelliJ IDEA
-1. Open IntelliJ
-2. Click:
-   File → Open
-3. Select the project folder: `OnlineStudentManagement/`
+### Step 3 — Open the Project
+1. Open **IntelliJ IDEA**.
+2. Go to **File → Open** and select the `OnlineStudentManagement` folder.
+3. Wait a few seconds for IntelliJ to download Maven dependencies automatically. *(Check the bottom-right corner for "Syncing" or "Resolving Dependencies" progress)*.
 
-
-
-## Step 2 — Wait for Maven Dependencies
-IntelliJ will automatically download all required libraries.
-(You will see “Maven Build Completed” at the bottom.)
-
-
-
-## Step 3 — Start MySQL Server
-1. Open XAMPP
-2. Start "MySQL" service
-3. Open phpMyAdmin:  http://localhost/phpmyadmin/
-
-
-## Step 4 — Create Database
-In phpMyAdmin create a database:`studentdb`.
-⚠️ You do NOT need to create any tables. Hibernate will automatically generate tables when you run the project.
-
-
-## Step 5 — Check Hibernate Configuration
-
-Make sure your MySQL login details are correct in the file:`
-src/main/resources/hibernate.cfg.xml`
-Default configuration:
+### Step 4 — Verify Hibernate Configuration
+Open the config file: `src/main/resources/hibernate.cfg.xml`.
+Ensure your MySQL connection properties match your local setup:
 ```xml
 <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/studentdb</property>
 <property name="hibernate.connection.username">root</property>
-<property name="hibernate.connection.password"></property>
-<property name="hibernate.hbm2ddl.auto">update</property>
+<property name="hibernate.connection.password"></property> <!-- Leave empty for default XAMPP -->
 ```
-✔ If your MySQL has a password → add it.
 
-✔ If not → leave empty
+### Step 5 — Run the Application
+You can run the application in two ways:
 
----
+**Option A: Using IntelliJ IDEA (Recommended)**
+1. Open `src/main/java/org/example/Main.java`.
+2. Click the **green Play ▶ button** next to `public class Main` or `public static void main`.
 
-## Step 6 — Run the Main Class
+**Option B: Using Terminal / PowerShell**
+If you prefer running via the terminal, navigate to the project root directory and execute:
+```powershell
+# 1. Compile the project securely
+mvn compile -q
 
-Go to:`src/main/java/org/example/Main.java`
-
-Click the green Run ▶ button in IntelliJ.
+# 2. Get the Classpath and Run the Application
+$cp = Get-Content "classpath.txt"; java -cp "target\classes;$cp" org.example.Main
+```
 
 # 📟 Sample Output
 ```xml
@@ -268,63 +264,8 @@ If this project helped you, **Star ⭐ the repository** on GitHub.
 
 
 
+## 📄 License
 
--------------------------------------
-LICENSE (MIT)
--------------------------------------
+MIT License © 2025 Priyanshu Gupta
 
-MIT License
 
-Copyright (c) 2025 Priyanshu Gupta
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
--------------------------------------
-ISSUE TEMPLATE — bug_report.md
--------------------------------------
-
-name: Bug Report
-description: File a bug report
-title: "[BUG] - "
-labels: bug
-body:
-  - type: textarea
-    id: bug-desc
-    attributes:
-      label: Describe the bug
-      placeholder: Explain the issue clearly.
-
--------------------------------------
-PULL REQUEST TEMPLATE — pull_request.md
--------------------------------------
-
-Pull Request
-
-Description:
-Explain what this PR does.
-
-Type of Change:
-- Bug fix
-- New feature
-- Documentation update
-
-Checklist:
-- Code compiles correctly
-- Tests added (if applicable)
-- Documentation updated
