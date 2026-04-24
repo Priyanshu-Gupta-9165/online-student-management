@@ -270,8 +270,6 @@ If you face any issues while setting up, check the common errors below:
 
 ## 📝 Future Enhancements
 
-- Update student details
-- Delete student
 - Course management
 - Fee management with transactions
 - Spring Boot version
